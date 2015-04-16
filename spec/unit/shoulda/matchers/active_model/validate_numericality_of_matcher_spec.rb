@@ -515,7 +515,7 @@ describe Shoulda::Matchers::ActiveModel::ValidateNumericalityOfMatcher, type: :m
           <<-MESSAGE.strip_heredoc
             Expected errors to include "must be an integer" when attr is set to 0.1,
             got errors:
-            * "must be even" (attribute: attr, value: "19")
+            * "must be greater than 18" (attribute: attr, value: "0.1")
           MESSAGE
         )
         expect(&assertion).to fail_with_message(message)
@@ -532,7 +532,8 @@ describe Shoulda::Matchers::ActiveModel::ValidateNumericalityOfMatcher, type: :m
         message = format_message_according_to_rails_version(
           <<-MESSAGE.strip_heredoc
             Expected errors to include "must be an integer" when attr is set to 0.1,
-            got no errors
+            got errors:
+            * "must be greater than 18" (attribute: attr, value: "0.1")
           MESSAGE
         )
         expect(&assertion).to fail_with_message(message)
@@ -573,7 +574,7 @@ describe Shoulda::Matchers::ActiveModel::ValidateNumericalityOfMatcher, type: :m
           <<-MESSAGE.strip_heredoc
             Expected errors to include "must be even" when attr is set to 1,
             got errors:
-            * "must be odd" (attribute: attr, value: "20")
+            * "must be greater than 18" (attribute: attr, value: "1")
           MESSAGE
         )
         expect(&assertion).to fail_with_message(message)
@@ -763,7 +764,7 @@ describe Shoulda::Matchers::ActiveModel::ValidateNumericalityOfMatcher, type: :m
           <<-MESSAGE.strip_heredoc
             Expected errors to include "must be greater than 18" when attr is set to 18,
             got errors:
-            * "must be less than 99" (attribute: attr, value: "100")
+            * "must be greater than 19" (attribute: attr, value: "19")
           MESSAGE
         )
         expect(&assertion).to fail_with_message(message)
