@@ -984,7 +984,7 @@ describe Shoulda::Matchers::ActiveModel::ValidateNumericalityOfMatcher, type: :m
 
   def format_message_according_to_rails_version(message)
     if rails_lt_4_2?
-      message.gsub(/"(\d+)"/, '\1')
+      message.gsub(/"((?:\d+)(?:\.\d+)?)"/, '\1')
     else
       message
     end
