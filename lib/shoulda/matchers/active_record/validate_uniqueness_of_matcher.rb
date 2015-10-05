@@ -262,7 +262,6 @@ module Shoulda
           scopes_match? &&
             set_scoped_attributes &&
             validate_everything_except_duplicate_nils_or_blanks? &&
-            validate_case_sensitivity? &&
             validate_after_scope_change? &&
             allows_nil? &&
             allows_blank?
